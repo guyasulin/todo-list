@@ -9,8 +9,11 @@
         border-right: 1px solid;
         flex:1;
         padding: 20px 35px 0;
-        width: 20%;
+        overflow: auto;
 
+        .item-title {
+          cursor: pointer;
+        }
         .paginator {
           margin-top: 25px;
         }

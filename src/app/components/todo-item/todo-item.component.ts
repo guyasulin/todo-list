@@ -15,16 +15,13 @@ export class TodoItemComponent implements OnInit, AfterContentChecked {
   public textButton: string = '';
   public localStorageItem: any[] = JSON.parse(localStorage.getItem('favorite'));
   public show: boolean;
-  constructor(private ref: ChangeDetectorRef) { }
+  constructor() { }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   ngAfterContentChecked(): void {
    this.showfavorit === true ? this.textButton = 'Important remove' : this.textButton = 'Important save'
   }
-
 
   save(item) {
     const newItem = {
@@ -35,7 +32,6 @@ export class TodoItemComponent implements OnInit, AfterContentChecked {
     isImportant: true
   }
     this.favoriteItem.push(newItem)
-    localStorage.setItem('favorite', JSON.stringify(this.favoriteItem));
   }
 
   remove(item) {
@@ -46,7 +42,6 @@ export class TodoItemComponent implements OnInit, AfterContentChecked {
         break;
       }
     }
-    localStorage.setItem('favorite', JSON.stringify(this.favoriteItem));
 
   }
 
@@ -68,7 +63,6 @@ export class TodoItemComponent implements OnInit, AfterContentChecked {
       this.textButton = "Important remove ";
       this.showfavorit = true;
     }
-    this.ref.detectChanges()
-
+    localStorage.setItem('favorite', JSON.stringify(this.favoriteItem));
   }
 }

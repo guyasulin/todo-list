@@ -14,6 +14,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { HeaderComponent } from 'src/app/header/header.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { HeaderComponent } from 'src/app/header/header.component';
     MatPaginatorModule,
     NgxPaginationModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDividerModule,
+    MatListModule
   ],
   providers: [TodoListService],
   bootstrap: [AppComponent]
