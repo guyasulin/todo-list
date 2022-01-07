@@ -20,9 +20,6 @@ export class TodoItemsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.todoList$ = this.todoListService.getTodos();
-    if (this.localStorageItem) {
-      this.localStorageItem
-    }
   }
 
   pageEvent(event) {
@@ -31,14 +28,6 @@ export class TodoItemsListComponent implements OnInit {
 
   showItem(item) {
     this.item = item;
-    if (this.localStorageItem) {
-      const localitem = this.localStorageItem.find(itemLocal => itemLocal.id === item.id);
-      if (localitem !== undefined) {
-        this.showfavorit = true;
-      } else {
-        this.showfavorit = false;
-      };
-    }
   }
 
 

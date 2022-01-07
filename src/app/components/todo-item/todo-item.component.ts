@@ -9,36 +9,42 @@ import { Todo } from 'src/app/models/todo-list';
 export class TodoItemComponent implements OnInit, AfterContentChecked {
 
   @Input() item: Todo;
-  @Input() showfavorit: boolean;
   public favoriteItem: Todo[] = [];
   public isExists: boolean;
   public textButton: string = '';
-  public localStorageItem: any[] = JSON.parse(localStorage.getItem('favorite'));
-  public show: boolean;
-  constructor() { }
+  public localStorageItem: any[] = JSON.parse(localStorage.getItem('favorite')) ?? [];
+  public isImportant;
 
-  ngOnInit(): void {}
+  constructor() { }
+  ngOnInit(): void { }
 
   ngAfterContentChecked(): void {
-   this.showfavorit === true ? this.textButton = 'Important remove' : this.textButton = 'Important save'
+     const isItemExis =  this.localStorageItem.find(item =>  item.id === this.item?.id);
+     if (isItemExis) {
+      this.isImportant = true;
+     } else {
+      this.isImportant = false;
+     }
+      this.isImportant === true ? this.textButton = 'Important remove' : this.textButton = 'Important save';
+
   }
 
   save(item) {
     const newItem = {
-    completed: item.completed,
-    id: item.id,
-    title: item.title,
-    userId: item.userId,
-    isImportant: true
-  }
-    this.favoriteItem.push(newItem)
+      completed: item.completed,
+      id: item.id,
+      title: item.title,
+      userId: item.userId,
+      isImportant: true
+    }
+    this.localStorageItem.push(newItem)
   }
 
   remove(item) {
-    for (let i = 0; i < this.favoriteItem.length; i++) {
-      const element = this.favoriteItem[i];
+    for (let i = 0; i < this.localStorageItem.length; i++) {
+      const element = this.localStorageItem[i];
       if (element.id == item.id) {
-        this.favoriteItem.splice(i, 1)
+        this.localStorageItem.splice(i, 1)
         break;
       }
     }
@@ -46,7 +52,9 @@ export class TodoItemComponent implements OnInit, AfterContentChecked {
   }
 
   saveOrDelete(item: Todo) {
-    this.isExists = this.favoriteItem.some(x => {
+    this.localStorageItem = JSON.parse(localStorage.getItem('favorite')) ?? [];
+
+    this.isExists = this.localStorageItem.some(x => {
       if (x.id == item.id) {
         return true;
       } else {
@@ -55,14 +63,13 @@ export class TodoItemComponent implements OnInit, AfterContentChecked {
     });
     if (this.isExists) {
       this.remove(item);
-      this.textButton = "Important save ";
-      this.showfavorit = false;
-
+      this.isImportant = false;
+      this.textButton = 'Important save'
     } else {
       this.save(item);
-      this.textButton = "Important remove ";
-      this.showfavorit = true;
+      this.isImportant = true;
+      this.textButton = 'Important remove'
     }
-    localStorage.setItem('favorite', JSON.stringify(this.favoriteItem));
+    localStorage.setItem('favorite', JSON.stringify(this.localStorageItem));
   }
 }

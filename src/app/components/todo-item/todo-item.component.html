@@ -1,12 +1,13 @@
 <div class="item" *ngIf="item">
-  <span *ngIf="showfavorit">
-    <mat-icon>star_rate</mat-icon>
+  <span *ngIf="isImportant == true" >
+    <mat-icon [ngClass]="isImportant == true ? 'favorit' : 'nonefavorit'">star_rate</mat-icon>
   </span>
   <div>
     {{ item.id }}
     {{ item.title }}
   </div>
   <div>
-    <button  mat-raised-button [ngStyle]="{'background-color': showfavorit == false ? '#28CA96' : '#FC6074'}" (click)="saveOrDelete(item)" > {{  textButton }}</button>
+    <button mat-raised-button
+    (click)="saveOrDelete(item)" [ngStyle]="{'background': isImportant == true ? '#FC6074' : '#28CA96'}"> {{  textButton }}</button>
   </div>
 </div>
