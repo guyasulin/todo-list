@@ -1,6 +1,8 @@
 <div class="todo-items-list ">
-   <div class="list-items sidenav">
-
+   <div class="list-items sidenav" *ngFor="let itemTodo of todoList$ | async ">
+     <div class="title">
+       {{ itemTodo.title }}
+     </div>
    </div>
 
    <div class="item">
