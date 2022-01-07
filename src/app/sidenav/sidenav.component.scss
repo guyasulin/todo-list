@@ -1,0 +1,38 @@
+$color-lightGray: rgb(0 0 0 / 26%);
+$color-pink: #f12750;
+$color-border: rgba(0, 0, 0, 0.12);
+$background-white: white;
+
+.wrapper {
+    display: grid;
+    grid-template: "header header" 100px 
+    "body body" 2fr 
+    "footer footer" 100px ; 
+    height: 100%;
+    background-color: #f4f3ef;
+  
+    .header {
+        grid-area: header;
+        border-bottom: 1px solid $color-border;
+        padding: 5px 40px;
+        display: grid;
+        grid-template-columns: 80;
+        grid-template-rows: 85%;
+        grid-auto-flow: column;
+    }
+  
+    .body {
+        grid-area: body;
+        overflow: auto;
+        background-color: #f4f3ef;
+    }
+  
+    .footer {
+        grid-area: footer;
+        border-top: 1px solid $color-border;
+        display: grid;
+        align-content: center;
+        justify-content: end;
+    }
+  }
+  

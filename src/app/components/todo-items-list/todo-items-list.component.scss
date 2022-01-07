@@ -1,0 +1,14 @@
+.todo-items-list {
+    display:flex;
+    height: 100%;
+    .list-items {
+        border-right: 1px solid;
+        flex:1;
+        padding: 20px 35px;
+    }
+
+    .item {
+        flex:1;
+        padding: 20px 35px;
+    }
+}
