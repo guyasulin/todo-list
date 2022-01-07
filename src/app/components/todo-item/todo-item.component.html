@@ -1,0 +1,9 @@
+<div class="item" *ngIf="item">
+  <div>
+    {{ item.id }}
+    {{ item.title }}
+  </div>
+  <div>
+    <button  (click)="saveOrDelete(item)" >remove Or save</button>
+  </div>
+</div>

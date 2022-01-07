@@ -1,7 +1,9 @@
 .todo-items-list {
-    display:flex;
-    height: 100%;
-    flex-direction: column;
+  display:flex;
+  height: 100%;
+  flex-direction: column;
+  .container {
+
     .list-items {
         border-right: 1px solid;
         flex:1;
@@ -13,4 +15,6 @@
         flex:1;
         padding: 20px 35px;
     }
+  }
+
 }

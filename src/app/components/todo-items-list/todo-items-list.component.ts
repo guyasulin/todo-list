@@ -11,12 +11,18 @@ import { Observable } from 'rxjs';
 export class TodoItemsListComponent implements OnInit {
 
   public todoList$: Observable<Todo[]>;
+  public item: Todo;
 
   constructor(private todoListService:TodoListService) { }
 
   ngOnInit(): void {
     this.todoList$ = this.todoListService.getTodos();
 
+  }
+
+  showItem(item) {
+    console.log(item);
+    this.item = item;
   }
 
 

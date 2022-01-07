@@ -8,11 +8,13 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { TodoItemsListComponent } from './components/todo-items-list/todo-items-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TodoListService } from 'src/app/services/todo-list.service';
+import { TodoItemComponent } from './components/todo-item/todo-item.component';
 @NgModule({
   declarations: [
     AppComponent,
     SidenavComponent,
     TodoItemsListComponent,
+    TodoItemComponent,
   ],
   imports: [
     BrowserModule,

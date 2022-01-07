@@ -1,11 +1,14 @@
 <div class="todo-items-list ">
+
+  <div class="container">
+    <div class="item">
+      <app-todo-item [item]="item" ></app-todo-item>
+   </div>
+
    <div class="list-items sidenav" *ngFor="let itemTodo of todoList$ | async ">
-     <div class="title">
-       {{ itemTodo.title }}
-     </div>
-   </div>
-
-   <div class="item">
-
-   </div>
+    <div class="title" (click)="showItem(itemTodo)">
+      {{ itemTodo.title }}
+    </div>
+  </div>
+  </div>
 </div>
