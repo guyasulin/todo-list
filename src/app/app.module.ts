@@ -11,6 +11,9 @@ import { TodoListService } from 'src/app/services/todo-list.service';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MatIconModule } from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import { HeaderComponent } from 'src/app/header/header.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     SidenavComponent,
     TodoItemsListComponent,
     TodoItemComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BrowserAnimationsModule,
     HttpClientModule,
     MatPaginatorModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [TodoListService],
   bootstrap: [AppComponent]

@@ -13,12 +13,16 @@ export class TodoItemsListComponent implements OnInit {
   public todoList$: Observable<Todo[]>;
   public item: Todo;
   public pageIndex: number;
+  public localStorageItem: any[] = JSON.parse(localStorage.getItem('favorite'));
+  public showfavorit: boolean;
 
-  constructor(private todoListService:TodoListService) { }
+  constructor(private todoListService: TodoListService) { }
 
   ngOnInit(): void {
     this.todoList$ = this.todoListService.getTodos();
-
+    if (this.localStorageItem) {
+      this.localStorageItem
+    }
   }
 
   pageEvent(event) {
@@ -27,6 +31,14 @@ export class TodoItemsListComponent implements OnInit {
 
   showItem(item) {
     this.item = item;
+    if (this.localStorageItem) {
+      const localitem = this.localStorageItem.find(itemLocal => itemLocal.id === item.id);
+      if (localitem !== undefined) {
+        this.showfavorit = true;
+      } else {
+        this.showfavorit = false;
+      };
+    }
   }
 
 
