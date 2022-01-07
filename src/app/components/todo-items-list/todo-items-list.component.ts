@@ -12,6 +12,7 @@ export class TodoItemsListComponent implements OnInit {
 
   public todoList$: Observable<Todo[]>;
   public item: Todo;
+  public pageIndex: number;
 
   constructor(private todoListService:TodoListService) { }
 
@@ -20,8 +21,11 @@ export class TodoItemsListComponent implements OnInit {
 
   }
 
+  pageEvent(event) {
+    this.pageIndex = event.pageIndex
+  }
+
   showItem(item) {
-    console.log(item);
     this.item = item;
   }
 

@@ -1,14 +1,24 @@
 <div class="todo-items-list ">
 
-  <div class="container">
+  <div class="container" *ngIf="(todoList$| async) as todoList ">
+
     <div class="item">
       <app-todo-item [item]="item" ></app-todo-item>
    </div>
 
-   <div class="list-items sidenav" *ngFor="let itemTodo of todoList$ | async ">
-    <div class="title" (click)="showItem(itemTodo)">
+   <div class="list-items sidenav" >
+    <div class="title" *ngFor="let itemTodo of todoList  | paginate: { itemsPerPage: 25, currentPage: pageIndex }" (click)="showItem(itemTodo)">
       {{ itemTodo.title }}
     </div>
+
+    <div>
+      <mat-paginator
+      [length]="todoList?.length"
+      [pageSize]="25"
+      (page)="pageEvent($event)">
+    </mat-paginator>
+    </div>
   </div>
+
   </div>
 </div>

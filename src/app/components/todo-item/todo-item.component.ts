@@ -13,9 +13,7 @@ export class TodoItemComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   save(item) {
   this.favoriteItem.push(item)

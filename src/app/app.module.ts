@@ -9,6 +9,9 @@ import { TodoItemsListComponent } from './components/todo-items-list/todo-items-
 import { HttpClientModule } from '@angular/common/http';
 import { TodoListService } from 'src/app/services/todo-list.service';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,9 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule,
+    NgxPaginationModule
   ],
   providers: [TodoListService],
   bootstrap: [AppComponent]
