@@ -23,7 +23,7 @@ export class TodoItemsListComponent implements OnInit {
   }
 
   pageEvent(event) {
-    this.pageIndex = event.pageIndex
+    this.pageIndex = event.pageIndex + 1
   }
 
   showItem(item) {

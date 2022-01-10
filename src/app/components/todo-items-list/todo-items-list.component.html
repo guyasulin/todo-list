@@ -1,7 +1,7 @@
 <div class="todo-items-list">
   <div class="container" *ngIf="todoList$ | async as todoList">
-    <div class="list-items sidenav">
-      <mat-list>
+    <div class="sidenav">
+      <mat-list class="list-items">
         <mat-list-item class="item-title"
         *ngFor="let itemTodo of todoList | paginate: { itemsPerPage: 25, currentPage: pageIndex } "
         (click)="showItem(itemTodo)" >
